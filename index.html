@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danna Bonk</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        padding-top: 50px;
+      }
+
+      #container {
+        display: block;
+        width: 100%;
+        height: 600px;
+        max-width: 100vw;
+        max-height: 600px;
+        border-bottom: 2px solid #333;
+        margin: 0 auto;
+      }
+
+      /* Mobile scaling */
+      @media (max-width: 768px) {
+        #container {
+          height: 50vh;
+          max-height: 50vh;
+          width: calc(50vh * 4 / 3); /* Maintain 4:3 aspect ratio */
+          max-width: 100vw;
+        }
+
+        .controls {
+          padding: 5px;
+        }
+
+        .controls h3 {
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+
+        .controls-row {
+          max-width: 300px;
+        }
+
+        .d-pad {
+          width: 100px;
+          height: 100px;
+        }
+
+        .d-pad button {
+          width: 35px;
+          height: 35px;
+          font-size: 14px;
+        }
+
+        .d-pad .up {
+          top: 0;
+          left: 32.5px;
+        }
+        .d-pad .down {
+          bottom: 0;
+          left: 32.5px;
+        }
+        .d-pad .left {
+          top: 32.5px;
+          left: 0;
+        }
+        .d-pad .right {
+          top: 32.5px;
+          right: 0;
+        }
+
+        .action-btn {
+          width: 50px;
+          height: 50px;
+          margin: 8px;
+          font-size: 12px;
+        }
+
+        .instructions {
+          font-size: 12px;
+          margin-top: 10px;
+        }
+      }
+
+      .controls {
+        padding: 50px;
+        text-align: center;
+      }
+
+      .controls span {
+        display: block;
+        margin-top: 50px;
+        font-size: 10px;
+        color: #ccc;
+      }
+
+      .controls h3 {
+        margin-bottom: 15px;
+        color: #fff;
+      }
+
+      .control-section {
+        margin-bottom: 20px;
+      }
+
+      .controls-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .d-pad {
+        position: relative;
+        width: 120px;
+        height: 120px;
+      }
+
+      .d-pad button {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #333;
+        border: 2px solid #555;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .d-pad button:active {
+        background: #555;
+      }
+
+      .d-pad .up {
+        top: 0;
+        left: 40px;
+      }
+      .d-pad .down {
+        bottom: 0;
+        left: 40px;
+      }
+      .d-pad .left {
+        top: 40px;
+        left: 0;
+      }
+      .d-pad .right {
+        top: 40px;
+        right: 0;
+      }
+
+      .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .action-btn {
+        width: 60px;
+        height: 60px;
+        margin: 10px;
+        background: #444;
+        border: 2px solid #666;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .action-btn:active {
+        background: #666;
+      }
+
+      .instructions {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="container"></canvas>
+
+    <div class="controls">
+      <div class="control-section">
+        <div class="controls-row">
+          <div class="d-pad">
+            <button class="up" data-key="ArrowUp">↑</button>
+            <button class="down" data-key="ArrowDown">↓</button>
+            <button class="left" data-key="ArrowLeft">←</button>
+            <button class="right" data-key="ArrowRight">→</button>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn" id="bonk-btn" data-key="Space">
+              BONK
+            </button>
+            <button
+              class="action-btn"
+              id="restart-btn"
+              data-key="KeyR"
+              style="display: none"
+            >
+              RESTART
+            </button>
+          </div>
+        </div>
+      </div>
+      <span>Danna Bonk | Get Money, Bonk Dan!</span>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
